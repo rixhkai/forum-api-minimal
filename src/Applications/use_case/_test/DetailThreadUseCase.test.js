@@ -142,6 +142,7 @@ describe("DetailThreadUseCase", () => {
           username: "dicoding",
           date: mockDate,
           content: "comment thread",
+          likeCount: 0,
           replies: [
             {
               id: "tcreply-123",

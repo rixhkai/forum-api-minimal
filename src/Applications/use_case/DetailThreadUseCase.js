@@ -57,6 +57,7 @@ class DetailThreadUseCase {
               : "**komentar telah dihapus**",
             date: new Date(item.date).toISOString(),
             username: item.owner,
+            likeCount: item.likecount ? +item.likecount : 0,
             replies: [],
           };
           // Each assign reply to match parent comment
