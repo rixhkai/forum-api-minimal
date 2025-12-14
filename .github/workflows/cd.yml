@@ -19,6 +19,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd ~/forum-api-minimal
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           git pull origin main
           npm install
           npm run migrate up
