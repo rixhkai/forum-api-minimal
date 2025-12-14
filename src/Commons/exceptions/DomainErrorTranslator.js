@@ -36,6 +36,9 @@ DomainErrorTranslator._directories = {
   'DELETE_REPLY_COMMENT_THREAD_USE_CASE.PAYLOAD_NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError(`can't delete reply comment thread, wrong payload data type`),
   'DETAIL_THREAD_USE_CASE.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError(`can't get detail thread because thread id is empty`),
   'DETAIL_THREAD_USE_CASE.PAYLOAD_NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError(`can't get detail thread, wrong payload data type`),
+  'LIKE_COMMENT_USE_CASE.NOT_CONTAIN_AUTH_TOKEN': new AuthenticationError(`unauthenticated, can't like/unlike comment`),
+  'LIKE_COMMENT_USE_CASE.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError(`can't like/unlike comment because needed property is empty`),
+  'LIKE_COMMENT_USE_CASE.PAYLOAD_NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError(`can't like/unlike comment, wrong payload data type`),
 };
 
 module.exports = DomainErrorTranslator;

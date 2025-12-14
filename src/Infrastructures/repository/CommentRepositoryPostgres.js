@@ -75,14 +75,19 @@ class CommentRepositoryPostgres extends CommentRepository {
                     tc.owner,
                     tc.comment_id,
                     tc.is_delete,
-                    tc.thread_id
+                    tc.thread_id,
+                    count(distinct l.id) as likeCount
       FROM thread_comments as tc
+      LEFT JOIN comment_likes as l 
+        ON l.comment_id = tc.id
       WHERE tc.thread_id = $1 AND tc.comment_id is null
+      GROUP BY tc.id
       ORDER BY tc.created_at ASC`,
       values: [threadId],
     };
 
     const resultComment = await this._pool.query(queryCommentList);
+    console.log('result commentGetThread', resultComment);
 
     // always return array regardless if comment is found or not
     return resultComment.rows;
